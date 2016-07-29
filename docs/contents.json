@@ -1,26 +1,45 @@
 {
-  "Introduction": {
-    "Welcome to Dat": "welcome.md",
+  "Using Dat": {
+    "Introduction to Dat": "welcome.md",
+    "Transfer a file with Dat": "using-dat.md",
+    "Dat Command Line Basics": "dat-cli.md",
+    "Build with Dat" : "diy-dat.md",
+    "FAQ": "faq.md"
+  },
+  "Reference": {
+    "SLEEP Specification": "sleep.md",
+    "Hyperdrive Specification": "hyperdrive_spec.md",
     "How Dat Works": "how-dat-works.md"
-  },
-  "Specification": {
-    "hyperdrive spec": "hyperdrive_spec.md",
-    "sleep": "sleep.md"
-  },
-  "References": {
-    "API": "api.md",
-    "DIY Dat": "diy-dat.md"
   },
   "Modules": {
     "Overview": "ecosystem.md",
     "Interface": {
-      "Dat Command Line": "dat.md",
-      "dat.land": "dat.land.md",
-      "Dat Desktop": "dat-desktop.md"
+      "Dat Command Line": {
+        "file": "dat.md",
+        "link": "https://github.com/maxogden/dat"
+      },
+      "dat.land": {
+        "file": "dat.land.md",
+        "link": "https://github.com/datproject/dat.land"
+      },
+      "Dat Desktop": {
+        "file": "dat-desktop.md",
+        "link": "https://github.com/juliangruber/dat-desktop"
+      }
     },
     "Core": {
-      "Hyperdrive": "hyperdrive.md",
-      "Hypercore": "hypercore.md"
+      "Hyperdrive": {
+        "file": "hyperdrive.md",
+        "link": "https://github.com/mafintosh/hyperdrive"
+      },
+      "Hypercore": {
+        "file": "hypercore.md",
+        "link": "https://github.com/mafintosh/hypercore"
+      }
+    },
+    "Network": {
+      "Discovery Swarm": "discovery-swarm.md",
+      "Hyperdrive Archive Swarm": "hyperdrive-archive-swarm.md"
     }
   }
 }

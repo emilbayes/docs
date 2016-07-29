@@ -1,5 +1,13 @@
 # DIY Dat
 
+This document will show a user how to develop apps with the dat toolset. We can also highlight projects that use the dat modules (beaker, hyperirc, etc.)
+
+* Downloading a file (this file?) with custom dat module
+* Sharing a file with custom dat module
+* Starting to build more complex apps, hypercore/hyperdrive difference, etc
+
+---
+
 This document shows how to write your own compatible `dat` client using node modules.
 
 The three essential node modules are called [hyperdrive](https://npmjs.org/hyperdrive), [hyperdrive-archive-swarm](https://npmjs.org/hyperdrive-archive-swarm) and [level](https://npmjs.org/level). Hyperdrive does file synchronization and versioning, hyperdrive-archive-swarm does peer discovery over local networks and the Internet, and level provides a local LevelDB for storing metadata. More details are available in [How Dat Works](how-dat-works.md). The [dat](https://npmjs.org/dat) module itself is just some code that combines these modules and wraps them in a command-line API.
