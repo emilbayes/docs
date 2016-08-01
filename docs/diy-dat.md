@@ -32,18 +32,17 @@ For each dat, we need three things:
 2. A hyperdrive archive
 3. A peer group
 
-
 For this example, we will use memdb for the database, and hyperdrive-archive-swarm for the peer group. In your `index.js` file, require the modules and set them up:
 
 ```js
 var memdb = require('memdb')
-var hyperdrive = require('hyperdrive')
+var Hyperdrive = require('hyperdrive')
 var Swarm = require('hyperdrive-archive-swarm')
 
 var link = process.argv[2] // user inputs the dat link
 
 var db = memdb()
-var drive = hyperdrive(db)
+var drive = Hyperdrive(db)
 var archive = drive.createArchive(link)
 var swarm = Swarm(archive)
 ```
@@ -61,7 +60,7 @@ Now, you can run the module! To download the first file from our docs dat, run:
 node index.js <add link here>
 ```
 
-You should see the first file in our docs repo!
+You should see the first file in our docs repo.
 
 #### Module #1 Bonus: Display any file in the Dat
 
