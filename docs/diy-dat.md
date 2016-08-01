@@ -3,7 +3,7 @@
 This document will show a user how to develop apps with the dat toolset. We can also highlight projects that use the dat modules (beaker, hyperirc, etc.)
 
 * ~~display a file (this file?) with custom dat module~~
-* download all files to fs
+* ~~download all files to fs~~
 * Sharing a file with custom dat module
 * Starting to build more complex apps, hypercore/hyperdrive difference, etc
 
@@ -82,36 +82,61 @@ node bonus.js <add link here> diy-dat.md
 
 ## Module #2: Download all files to computer
 
-```js
-// run this like: node thisfile.js 4c325f7874b4070blahblahetc
-// the dat link someone sent us, we want to download the data from it
-var link = new Buffer(process.argv[2], 'hex')
+This module will build on the last module. Instead of displaying a single file, we will download all of the files from a dat into a local directory. View the code for this module on [Github](https://github.com/joehand/dat-examples/module-2).
 
+To download the files to the file system, instead of to a database, we will use the `file` option in `hyperdrive` and the [random-access-file](http://npmjs.org/random-access-file) module. We will also learn two new archive functions that make handling all the files a bit easier than the file stream in module #1. 
+
+Setup will be the same as before (make sure you install random-access-file and stream-each this time): 
+
+```
+`mkdir module-2 && cd module-2`
+`npm init`
+`npm install --save hyperdrive memdb hyperdrive-archive-swarm random-access-file stream-each`
+`touch index.js`
+```
+
+The first part of the module will look the same. We will add random-access-file (and [stream-each](http://npmjs.org/stream-each) to make things easier). The only difference is that we have to specify the `file` option when creating our archive:
+
+```js
+var memdb = require('memdb')
 var Hyperdrive = require('hyperdrive')
 var Swarm = require('hyperdrive-archive-swarm')
-var level = require('level')
-var raf = require('random-access-file')
+var raf = require('random-access-file') // this is new!
 var each = require('stream-each')
 
-var db = level('./dat.db')
+var link = process.argv[2]
+
+var db = memdb()
 var drive = Hyperdrive(db)
 var archive = drive.createArchive(link, {
   file: function (name) {
-    return raf(path.join(self.dir, name))
+    return raf(path.join('download', name)) // download into a "download" dir
   }
 })
 var swarm = Swarm(archive)
+```
 
-archive.open(function (err) {
-  if (err) return console.error(err)
-  each(archive.list({live: archive.live}), function (data, next) {
-    var startBytes = self.stats.bytesDown
-    archive.download(data, function (err) {
-      if (err) return console.error(err)
-      console.log('file downloaded', data.relname)
-      next()
-    })
-  }, done)
+Now that we are setup, we can work with the archive. The `archive.download` function downloads the file content (to wherever you specified in the file option). To download all the files, we will need a list of files and then we will call download on each of them. `archive.list` will give us the list of the files. We use the stream-each module to make it easy to iterate over each item in the archive, then exit when the stream is finished.
+
+```js
+var stream = archive.list({live: false}) // Use {live: false} for now to make the stream easier to handle.
+each(stream, function (entry, next) {
+  archive.download(entry, function (err) {
+    if (err) return console.error(err)
+    console.log('downloaded', entry.name)
+    next()
+  })
+}, function () {
+  process.exit(0)
 })
+```
+
+You should be able to run the module and see all our docs files in the `download` folder:
 
 ```
+node index.js <add link here>
+```
+
+#### Module #3: Sharing a file
+
+
