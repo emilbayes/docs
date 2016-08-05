@@ -8,7 +8,7 @@
   },
   "Reference": {
     "SLEEP Specification": "sleep.md",
-    "Hyperdrive Specification": "hyperdrive_spec.md",
+    "Hyperdrive Specification": "hyperdrive-specification.md",
     "How Dat Works": "how-dat-works.md"
   },
   "Modules": {
