@@ -10,7 +10,7 @@ The goal of this file is to introduce a user to the Dat CLI and go through a few
 
 # Dat Command Line Basics
 
-The dat command line interface can be used to share, download, and sync files across many computers. 
+The Dat command line interface can be used to share, download, and sync files across many computers.
 
 In this guide, we will go over the basics of downloading and sharing files with Dat to get you acquainted with the tool.
 
@@ -59,7 +59,7 @@ Check your Dat version:
 dat -v
 ```
 
-You should see [semantic version](http://semver.org/) printed, `11.1.2`.
+You should see the Dat [semantic version](http://semver.org/) printed, e.g. `11.1.2`.
 
 ## 2. Downloading Files
 
@@ -92,8 +92,6 @@ While downloading, you may be connected to more than 1 peer. Anyone who has the 
 What happens if the files get updated? Dat auto-syncs new files. So if you still have the process open it will download the new files. If you exited the process, you can run the same command you ran before (with the same link and directory) and the files will update!
 
 ## 3. Sharing Files
-
-
 
 Share a directory by typing `dat <directory>`:
 

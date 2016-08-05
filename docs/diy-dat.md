@@ -1,13 +1,12 @@
-# DIY Dat
-
 This document will show a user how to develop apps with the dat toolset. We can also highlight projects that use the dat modules (beaker, hyperirc, etc.)
 
 * ~~display a file (this file?) with custom dat module~~
 * ~~download all files to fs~~
 * Sharing a file with custom dat module
 * Starting to build more complex apps, hypercore/hyperdrive difference, etc
-
 ---
+
+# DIY Dat
 
 In this guide, we will show how to develop applications with the `dat` ecosystem. Dat will help you build modules that do **(x, y, x)**. For example, **(things you build with dat modules)**
 
@@ -19,11 +18,11 @@ The three essential node modules are called [hyperdrive](https://npmjs.org/hyper
 
 Our first module will download files from a dat link entered by the user. View the code for this module on [Github](https://github.com/joehand/dat-examples/module-1).
 
-```
-`mkdir module-1 && cd module-1`
-`npm init`
-`npm install --save hyperdrive memdb hyperdrive-archive-swarm`
-`touch index.js`
+```bash
+mkdir module-1 && cd module-1
+npm init
+npm install --save hyperdrive memdb hyperdrive-archive-swarm
+touch index.js
 ```
 
 For each dat, we need three things: 
@@ -74,7 +73,7 @@ var stream = archive.createFileReadStream(fileName)
 
 Once you are finished, see if you can view this file by running:
 
-```
+```bash
 node bonus.js <add link here> diy-dat.md
 ```
 
@@ -88,11 +87,11 @@ To download the files to the file system, instead of to a database, we will use 
 
 Setup will be the same as before (make sure you install random-access-file and stream-each this time): 
 
-```
-`mkdir module-2 && cd module-2`
-`npm init`
-`npm install --save hyperdrive memdb hyperdrive-archive-swarm random-access-file stream-each`
-`touch index.js`
+```bash
+mkdir module-2 && cd module-2
+npm init
+npm install --save hyperdrive memdb hyperdrive-archive-swarm random-access-file stream-each
+touch index.js
 ```
 
 The first part of the module will look the same. We will add random-access-file (and [stream-each](http://npmjs.org/stream-each) to make things easier). The only difference is that we have to specify the `file` option when creating our archive:
@@ -133,10 +132,10 @@ each(stream, function (entry, next) {
 
 You should be able to run the module and see all our docs files in the `download` folder:
 
-```
+```bash
 node index.js <add link here>
 ```
 
-#### Module #3: Sharing a file
+## Module #3: Sharing a file
 
-
+**todo**
