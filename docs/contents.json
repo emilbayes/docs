@@ -15,30 +15,30 @@
     "Overview": "ecosystem.md",
     "Interface": {
       "Dat Command Line": {
-        "file": "dat.md",
+        "file": "modules/dat.md",
         "link": "https://github.com/maxogden/dat"
       },
       "dat.land": {
-        "file": "dat.land.md",
+        "file": "modules/dat.land.md",
         "link": "https://github.com/datproject/dat.land"
       },
       "Dat Desktop": {
-        "file": "dat-desktop.md",
+        "file": "modules/dat-desktop.md",
         "link": "https://github.com/juliangruber/dat-desktop"
       }
     },
     "Core": {
       "Hyperdrive": {
-        "file": "hyperdrive.md",
+        "file": "modules/hyperdrive.md",
         "link": "https://github.com/mafintosh/hyperdrive"
       },
       "Hypercore": {
-        "file": "hypercore.md",
+        "file": "modules/hypercore.md",
         "link": "https://github.com/mafintosh/hypercore"
       }
     },
     "Network": {
-      "Discovery Swarm": "discovery-swarm.md",
+      "Discovery Swarm": "modules/discovery-swarm.md",
       "Hyperdrive Archive Swarm": "hyperdrive-archive-swarm.md"
     }
   }
